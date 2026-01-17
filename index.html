@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body { margin:0; font-family: sans-serif; background: #0f172a; color: #e5e7eb; }
+  </style>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Save Your JS – Tremendous!</title>
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(to right, #f9f1e7, #ffd700);
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        min-height: 100vh;
+        padding: 40px 20px;
+    }
+
+    h1 {
+        font-size: 2.5em;
+        margin-bottom: 20px;
+        text-shadow: 1px 1px 2px #fff;
+        color: #b8860b;
+    }
+
+    textarea {
+        width: 100%;
+        max-width: 600px;
+        height: 250px;
+        padding: 15px;
+        font-family: monospace;
+        font-size: 16px;
+        border: 2px solid #b8860b;
+        border-radius: 12px;
+        margin-bottom: 15px;
+        resize: vertical;
+    }
+
+    input {
+        padding: 10px 15px;
+        font-size: 16px;
+        border: 2px solid #b8860b;
+        border-radius: 12px;
+        margin-right: 10px;
+        width: 200px;
+    }
+
+    button {
+        padding: 12px 25px;
+        font-size: 16px;
+        background: #b8860b;
+        color: #fff;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+    button:hover {
+        background: #ffd700;
+        color: #333;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 700px;
+        text-align: center;
+    }
+
+    footer {
+        margin-top: 30px;
+        font-size: 0.9em;
+        color: #444;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Tremendous JS Saver</h1>
+    <textarea id="codeArea" placeholder="Write your JavaScript code here..."></textarea><br>
+    <input type="text" id="fileName" placeholder="Enter filename (optional)">
+    <button onclick="saveJS()">Save as .js</button>
+</div>
+
+<footer>Make your JS great again! 💻</footer>
+
+<script>
+function saveJS() {
+    let code = document.getElementById('codeArea').value;
+    let filename = document.getElementById('fileName').value.trim() || 'default';
+
+    if (!filename.endsWith('.js')) {
+        filename += '.js';
+    }
+
+    const blob = new Blob([code], { type: 'text/javascript' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = filename;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+</script>
+
+</body>
+</html>
+
+</body>
+</html>
